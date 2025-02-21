@@ -30,8 +30,8 @@ class blackJack:
             elif values == 'A':
                 total += 11
             else:
-                #print('card2', values)
                 total += int(values)
+                # print('buster', hand,'total' ,total)
         if total > 21:
             for card in hand:
                 if card == "A":
@@ -46,8 +46,11 @@ class blackJack:
         return False
 
     def isBust(self, hand):
-        if self.calculate_hand(hand) > 21:
-            print('Bust')
+        # print('what is going on')
+        # print('Hand', hand)
+        #print('Total', self.calculate_hand(hand))
+        if int(self.calculate_hand(hand)) > 21:
+            # print('Bust')
             return True
         print('Not Bust')
         return False
@@ -58,7 +61,9 @@ class blackJack:
 
     def hit(self, hand, deck):
         hand.append(self.deal_card(deck))
-        #return hand, self.calculate_hand(hand)
+        # print('Hand HIt', hand)
+        # print('Total', self.calculate_hand(hand))
+        return hand
 
     def stand(self, hand):
         return hand
