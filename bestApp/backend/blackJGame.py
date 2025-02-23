@@ -18,7 +18,6 @@ class blackJack:
     def deal_card(self, deck):   
         return deck.pop()   
 
-
     def calculate_hand(self, hand):
         total = 0
         values = []
@@ -52,7 +51,7 @@ class blackJack:
         if int(self.calculate_hand(hand)) > 21:
             # print('Bust')
             return True
-        print('Not Bust')
+        #print('Not Bust')
         return False
 
     def double_down(self, hand, deck):
