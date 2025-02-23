@@ -1,5 +1,5 @@
 import { Text, View } from "react-native";
-import Tren from "../assets/tren.jpg";
+import Tren from "../assets/images/tren.png";
 export default function Index() {
   return (
     <View
