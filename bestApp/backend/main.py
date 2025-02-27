@@ -63,8 +63,7 @@ def stand():
         'player_hand': player_hand,
         'dealer_hand': dealer_hand,
         'message': f"{message} is the Winner!!"
-
-    })
+        })
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
