@@ -23,6 +23,11 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
+      ["expo-camera",
+      {
+        "cameraPermision": "We need access to your camera"
+      }],
+
       "expo-router",
       [
         "expo-splash-screen",
@@ -33,6 +38,7 @@
           "backgroundColor": "#ffffff"
         }
       ]
+      
     ],
     "experiments": {
       "typedRoutes": true
