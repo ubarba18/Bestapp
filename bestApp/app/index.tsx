@@ -57,12 +57,17 @@ export default function Index() {
           <View style={styles.navbarWrapper}>
             <View style={styles.navbarR}>
               <View style={styles.navbarButton}>
-                <Text style={{
-                  fontSize: 18.26,
-                  color: "#FFFFFF",
-                  }}>
-                    Solo
-                </Text>
+                <TouchableOpacity
+                  style={styles.navbarButton}
+                  onPress={() => navigation.navigate('Video')}  // Navigate to 'Game' screen
+                >
+                  <Text style={{
+                    fontSize: 18.26,
+                    color: "#FFFFFF",
+                    }}>
+                      Solo
+                  </Text>
+                </TouchableOpacity>
               </View>
               <View style={styles.navbarButton}>
               <Text style={{

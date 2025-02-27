@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native'; // Only one Navi
 import { createStackNavigator } from '@react-navigation/stack';
 import Index from './index';  // Import your Index screen
 import Game from './game';    // Import your Game screen
-
+import Video from './video';  // Import your Video screen
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -14,6 +14,7 @@ export default function App() {
       }} >
         <Stack.Screen name="Home" component={Index} />
         <Stack.Screen name="Game" component={Game} />
+        <Stack.Screen name="Video" component={Video} />
       </Stack.Navigator>
   
   );
