@@ -38,11 +38,13 @@ def hit():
     player_hand.append(new_card)
     print('HIT!!!! Player hand2', player_hand, 'Player total', game.calculate_hand(player_hand))
     if game.isBust(player_hand):
-                        return jsonify({ 
-                            'new_card': new_card,
-                            'player_hand': player_hand,
-                            'message': 'Player Busted Game over'
-                        })
+        start()
+        return jsonify({ 
+            'new_card': new_card,
+            'player_hand': player_hand,
+            'message': 'Player Busted Game over'
+        })
+        
     return jsonify({
         'new_card': new_card,
         'player_hand': player_hand,

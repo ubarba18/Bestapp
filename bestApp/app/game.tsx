@@ -4,6 +4,7 @@ import { JumpingTransition } from "react-native-reanimated";
 import { useNavigation } from "@react-navigation/native";
 import { useEffect } from "react";
 import React, { useState } from 'react';
+import { LinearGradient } from "expo-linear-gradient";
 import axios from "axios";
 
 const cardImages = {
@@ -64,7 +65,7 @@ const cardImages = {
     "A♣": require("../assets/cards/club_ace.png"),
 };
 
-  
+
 
 const GameScreen = () => {
 
@@ -129,58 +130,71 @@ const renderCard = (card) => {
 
 
 return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <TouchableOpacity
-            onPress={start} // Navigate to 'Game' screen
-            style={{
-                backgroundColor: "blue",
-                padding: 10,
-                borderRadius: 5,
-            }}
-        >
-            <Text style={{ color: "white", fontSize: 18 }}>Go to Game</Text>
-        </TouchableOpacity>
-        <Text>Game Screen</Text>
-        <View style={styles.cardTable}>
-            <View style={styles.cardRow}>
+    <LinearGradient
+            colors={["#ff007f", "#1a1a1a"]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+            style={styles.container}
+    >
+        <Text style={{ color: "white", fontSize: 24 }}>Blackjack</Text>
+        <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+            <TouchableOpacity
+                onPress={start} // Navigate to 'Game' screen
+                style={{
+                    backgroundColor: "blue",
+                    padding: 10,
+                    borderRadius: 5,
+                }}
+            >
+                <Text style={{ color: "white", fontSize: 18 }}>Go to Game</Text>
+            </TouchableOpacity>
+            <Text>Game Screen</Text>
+            <View style={styles.cardTable}>
                 <View style={styles.cardRow}>
-                    {playerHand.map((card, index) => (
-                    <View style={styles.card} key={index}>
-                        <Image source={cardImages[card]} style={{ flex: 1 }} />
+                    <View style={styles.cardRow}>
+                        {playerHand.map((card, index) => (
+                        <View style={styles.card} key={index}>
+                            <Image source={cardImages[card]} style={{ flex: 1 }} />
+                        </View>
+                        ))}
                     </View>
-                    ))}
                 </View>
+                <Text>Player Cards</Text>
+                <Text>Dealer Cards</Text>
             </View>
-            <Text>Player Cards</Text>
-            <Text>Dealer Cards</Text>
+            <View style={{ flexDirection: "row" }}>
+                <TouchableOpacity
+                    onPress={hit} // Navigate to 'Game' screen
+                    style={{
+                        backgroundColor: "blue",
+                        padding: 10,
+                        borderRadius: 5,
+                    }}>
+                    <Text>Hit</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    onPress={stand} // Navigate to 'Game' screen
+                    style={{
+                        backgroundColor: "blue",
+                        padding: 10,
+                        borderRadius: 5,
+                    }}>
+                    <Text>Stand</Text>
+                </TouchableOpacity>
+            </View>
         </View>
-        <View style={{ flexDirection: "row" }}>
-            <TouchableOpacity
-                onPress={hit} // Navigate to 'Game' screen
-                style={{
-                    backgroundColor: "blue",
-                    padding: 10,
-                    borderRadius: 5,
-                }}>
-                <Text>Hit</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-                onPress={stand} // Navigate to 'Game' screen
-                style={{
-                    backgroundColor: "blue",
-                    padding: 10,
-                    borderRadius: 5,
-                }}>
-                <Text>Stand</Text>
-            </TouchableOpacity>
-        </View>
-    </View>
+    </LinearGradient>
 );
 };
 
 export default GameScreen;
 
 const styles = {
+    container: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+    },
     cardTable: {
         flexDirection: "column",
         justifyContent: "center",
